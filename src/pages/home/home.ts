@@ -28,4 +28,8 @@ export class HomePage {
       }
     );
   }
+
+  removePhoto() {
+    this.base64Image = null;
+  }
 }
