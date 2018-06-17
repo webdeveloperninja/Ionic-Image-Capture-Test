@@ -7,7 +7,6 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public photos = [];
   public base64Image: string;
   constructor(public navCtrl: NavController, private camera: Camera) {}
 
@@ -18,12 +17,11 @@ export class HomePage {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     };
+
     this.camera.getPicture(options).then(
       imageData => {
         this.base64Image = 'data:image/jpeg;base64,' + imageData;
         console.log(this.base64Image);
-        this.photos.push(this.base64Image);
-        this.photos.reverse();
       },
       err => {
         console.log(err);
